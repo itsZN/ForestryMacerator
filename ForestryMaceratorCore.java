@@ -17,6 +17,7 @@ import cpw.mods.fml.common.Mod.PreInit;
 import cpw.mods.fml.common.event.FMLInitializationEvent;
 import cpw.mods.fml.common.event.FMLPreInitializationEvent;
 import forestry.api.core.BlockInterface;
+import forestry.api.core.ForestryAPI;
 import forestry.api.core.ItemInterface;
 import forestry.api.recipes.RecipeManagers;
 
@@ -35,18 +36,22 @@ public class ForestryMaceratorCore {
 		cmLog.info("Starting ForestryMacerator v1.0.0");
 		
 		
+		
 	}
 	
 	
 	
 	@Init
 	public void initialize(FMLInitializationEvent evt) {
+		//cmLog.info("Test");
+		//cmLog.info(Block.blocksList[BlockInterface.getBlock("oreCopper").itemID].getBlockName());
+		//cmLog.info(String.valueOf(BlockInterface.getBlock("oreCopper").itemID));
 		RecipeManagers.carpenterManager.addRecipe(45,new LiquidStack(Block.waterStill.blockID, 3000), null ,new ItemStack(Item.ingotIron,2),new Object[]{"   "," X ","   ", Character.valueOf('X'), Block.oreIron});
-		RecipeManagers.carpenterManager.addRecipe(45,new LiquidStack(Block.waterStill.blockID, 3000), null ,new ItemStack(Item.ingotGold,2),new Object[]{"   "," X ","   ", Character.valueOf('X'), Block.oreGold});
+		RecipeManagers.carpenterManager.addRecipe(45,new LiquidStack(Block.waterStill.blockID, 3000), null ,new ItemStack(Item.ingotGold,2),new Object[]{"   "," X ","   ", Character.valueOf('X'), Block.oreGold,  });
 		RecipeManagers.carpenterManager.addRecipe(45,new LiquidStack(Block.waterStill.blockID, 3000), null ,new ItemStack(Item.flint,1),new Object[]{"   "," X ","   ", Character.valueOf('X'), Block.gravel});
-		RecipeManagers.carpenterManager.addRecipe(45,new LiquidStack(Block.waterStill.blockID, 3000), null ,new ItemStack(ItemInterface.getItem("ingotCopper").getItem(),2), new Object[]{"   "," X ","   ", Character.valueOf('X'), BlockInterface.getBlock("oreCopper")});
+		RecipeManagers.carpenterManager.addRecipe(45,new LiquidStack(Block.waterStill.blockID, 3000), null ,new ItemStack(ItemInterface.getItem("ingotCopper").getItem(),2), new Object[]{"   "," X ","   ", Character.valueOf('X'), new ItemStack(Block.blocksList[BlockInterface.getBlock("resources").itemID],1,1)});
 		RecipeManagers.carpenterManager.addRecipe(45,new LiquidStack(Block.waterStill.blockID, 3000), null ,new ItemStack(Block.gravel,1),new Object[]{"   "," X ","   ", Character.valueOf('X'), Block.cobblestone});
-		RecipeManagers.carpenterManager.addRecipe(45,new LiquidStack(Block.waterStill.blockID, 3000), null ,new ItemStack(ItemInterface.getItem("ingotTin").getItem(),2), new Object[]{"   "," X ","   ", Character.valueOf('X'), BlockInterface.getBlock("oreTin")});
+		RecipeManagers.carpenterManager.addRecipe(45,new LiquidStack(Block.waterStill.blockID, 3000), null ,new ItemStack(ItemInterface.getItem("ingotTin").getItem(),2), new Object[]{"   "," X ","   ", Character.valueOf('X'), new ItemStack(Block.blocksList[BlockInterface.getBlock("resources").itemID],1,2)});
 		
 	}
 	
